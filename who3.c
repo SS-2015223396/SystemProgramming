@@ -31,7 +31,8 @@ void show_info(struct utmp *utbufp)
 	printf(" ");
 	printf("%-8.8s", utbufp->ut_line);
 	printf(" ");
-	printf("%101d", utbufp->ut_time);
+	//printf("%101d", utbufp->ut_time);
+	showtime(utbufp->ut_time);
 	printf(" ");
 #ifdef SHOWHOST
 	printf("(%s)",utbufp->ut_host);
@@ -43,5 +44,5 @@ void showtime(long timeval)
 {
 	char *cp;
 	cp = ctime(&timeval);
-	printf("%12.12s", cp+4);
+	printf("%12.12s", cp);
 }
